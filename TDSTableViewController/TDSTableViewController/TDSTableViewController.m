@@ -27,7 +27,6 @@
 
 @implementation TDSTableViewController
 @synthesize error = _error;
-@synthesize dragToRefresh       = _dragToRefresh;
 @synthesize tableView           = _tableView;
 @synthesize tableOverlayView    = _tableOverlayView;
 @synthesize loadingView         = _loadingView;
@@ -180,7 +179,6 @@
 - (void)loadView 
 {
     [super loadView];
-    self.dragToRefresh = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self.dataSource;   
 }
@@ -371,37 +369,17 @@
     self.tableView.pullToRefreshView.dateLabel.textColor		= [UIColor darkGrayColor];
     self.tableView.pullToRefreshView.dateLabel.shadowColor		= [UIColor grayColor];
     self.tableView.pullToRefreshView.dateLabel.shadowOffset		= CGSizeMake(0,1);
-    self.tableView.pullToRefreshView.dateLabel.backgroundColor	= [UIColor clearColor];
-    self.tableView.pullToRefreshView.dateLabel.textAlignment	= UITextAlignmentCenter;
-    
-    
+        
     self.tableView.pullToRefreshView.titleLabel.autoresizingMask	= UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin;
     self.tableView.pullToRefreshView.titleLabel.font				= [UIFont systemFontOfSize:14.0f];;
     self.tableView.pullToRefreshView.titleLabel.textColor			= [UIColor darkGrayColor];;
     self.tableView.pullToRefreshView.titleLabel.shadowColor			= [UIColor grayColor];;
     self.tableView.pullToRefreshView.titleLabel.shadowOffset		= CGSizeMake(0,1);;
-    self.tableView.pullToRefreshView.titleLabel.backgroundColor		= [UIColor clearColor];
-    self.tableView.pullToRefreshView.titleLabel.textAlignment		= UITextAlignmentCenter;
     
     UIImage *arrowImage = [UIImage imageNamed:@"arrow.png"];
     self.tableView.pullToRefreshView.arrow.image = arrowImage;
     self.tableView.pullToRefreshView.arrowColor = [UIColor grayColor];
     CGRect pullViewFrame = self.tableView.pullToRefreshView.frame;
-    self.tableView.pullToRefreshView.arrow.frame = CGRectMake(40.0f,
-                                                              pullViewFrame.size.height - arrowImage.size.height - 12.0f,
-                                                              arrowImage.size.width,
-                                                              arrowImage.size.height);
-    self.tableView.pullToRefreshView.dateLabel.frame = CGRectMake(0.0f,
-                                                                  pullViewFrame.size.height - 30.0f,
-                                                                  pullViewFrame.size.width,
-                                                                  20.0f);
-    
-    self.tableView.pullToRefreshView.activityIndicatorView.center = self.tableView.pullToRefreshView.arrow.center;
-    
-    CGRect titleLabelFrame = self.tableView.pullToRefreshView.titleLabel.frame;
-    titleLabelFrame.size.width = self.view.bounds.size.width;
-    titleLabelFrame.size.height = 20.0f;
-    self.tableView.pullToRefreshView.titleLabel.frame = titleLabelFrame;        
     
     UIImage		*refreshImage	= [UIImage imageNamed:@"logo.png"];
     UIImageView *refreshBGView	= [[[UIImageView alloc] initWithImage:refreshImage] autorelease];

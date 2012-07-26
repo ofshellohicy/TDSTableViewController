@@ -100,7 +100,7 @@ static CGFloat const SVPullToRefreshViewHeight = 60;
 - (UIImageView *)arrow {
     if(!arrow && pullToRefreshActionHandler) {
         arrow = [[UIImageView alloc] initWithImage:self.arrowImage];
-        arrow.frame = CGRectMake(0, 6, 22, 48);
+        arrow.frame = CGRectMake(40, 6, 22, 48);
         arrow.backgroundColor = [UIColor clearColor];
     }
     return arrow;
@@ -117,7 +117,6 @@ static CGFloat const SVPullToRefreshViewHeight = 60;
     [self.arrowColor set];
     CGContextTranslateCTM(context, 0, rect.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
-    //    CGContextClipToMask(context, rect, [[UIImage imageNamed:@"SVPullToRefresh.bundle/arrow"] CGImage]);
     CGContextClipToMask(context, rect, [[UIImage imageNamed:@"arrow.png"] CGImage]);
     CGContextFillRect(context, rect);
     
@@ -138,9 +137,10 @@ static CGFloat const SVPullToRefreshViewHeight = 60;
 
 - (UILabel *)dateLabel {
     if(!dateLabel && pullToRefreshActionHandler) {
-        dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 28, 180, 20)];
+        dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 28, self.superview.bounds.size.width, 20)];
         dateLabel.font = [UIFont systemFontOfSize:12];
         dateLabel.backgroundColor = [UIColor clearColor];
+        dateLabel.textAlignment	= UITextAlignmentCenter;
         dateLabel.textColor = textColor;
         [self addSubview:dateLabel];
         
@@ -172,11 +172,12 @@ static CGFloat const SVPullToRefreshViewHeight = 60;
     [_scrollView addSubview:self];
     self.showsPullToRefresh = YES;
     
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 150, 20)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.superview.bounds.size.width, 20)];
     titleLabel.text = NSLocalizedString(@"Pull to refresh...",);
     titleLabel.font = [UIFont boldSystemFontOfSize:14];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.textColor = textColor;
+    titleLabel.textAlignment = UITextAlignmentCenter;
     [self addSubview:titleLabel];
     
     [self addSubview:self.arrow];

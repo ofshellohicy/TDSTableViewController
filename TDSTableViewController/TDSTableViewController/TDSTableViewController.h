@@ -26,7 +26,6 @@
     UIInterfaceOrientation  _lastInterfaceOrientation;
     
     BOOL _showTableShadows;
-    BOOL _dragToRefresh;
     
     TDSTableViewDataSource *_dataSource;
     
@@ -35,7 +34,6 @@
 }
 
 @property (nonatomic, retain) NSError *error;
-@property (nonatomic, assign) BOOL dragToRefresh; // 默认是NO，是否需要下拉刷新，在createModel时设定。
 @property (nonatomic, assign) BOOL loadingData;   // 默认是NO, 载入数据时为YES,主要防止load more多次使用
 @property (nonatomic, retain) UITableView* tableView;
 @property (nonatomic, retain)TDSTableViewController *searchViewController;
