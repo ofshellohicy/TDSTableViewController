@@ -50,6 +50,10 @@
     [self performSelector:@selector(stopRefreshAction) withObject:nil afterDelay:2.0f];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView.pullToRefreshView triggerRefresh];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
