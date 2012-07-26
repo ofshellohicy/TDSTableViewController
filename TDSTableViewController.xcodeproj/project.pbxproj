@@ -37,6 +37,7 @@
 		2F47AAB7159AE7CE00F1AAC0 /* TestTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F47AAB6159AE7CE00F1AAC0 /* TestTableViewDataSource.m */; };
 		2F47AABA159AF14700F1AAC0 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F47AAB8159AF14700F1AAC0 /* arrow.png */; };
 		2F47AABB159AF14700F1AAC0 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F47AAB9159AF14700F1AAC0 /* arrow@2x.png */; };
+		2FB1720215C1567E00B52502 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB1720115C1567E00B52502 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		2F47AAB6159AE7CE00F1AAC0 /* TestTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewDataSource.m; sourceTree = "<group>"; };
 		2F47AAB8159AF14700F1AAC0 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		2F47AAB9159AF14700F1AAC0 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		2FB1720115C1567E00B52502 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		2F19C122159AAD4D0066D3B6 /* TDSTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2FB1720015C1567E00B52502 /* Resources */,
 				2F47AA75159AE10C00F1AAC0 /* TDSTableViewController */,
 				2F47AAB1159AE1E800F1AAC0 /* test */,
 				2F19C12B159AAD4D0066D3B6 /* AppDelegate.h */,
@@ -261,6 +264,14 @@
 			name = test;
 			sourceTree = "<group>";
 		};
+		2FB1720015C1567E00B52502 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2FB1720115C1567E00B52502 /* logo.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -315,6 +326,7 @@
 				2F19C133159AAD4D0066D3B6 /* ViewController.xib in Resources */,
 				2F47AABA159AF14700F1AAC0 /* arrow.png in Resources */,
 				2F47AABB159AF14700F1AAC0 /* arrow@2x.png in Resources */,
+				2FB1720215C1567E00B52502 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

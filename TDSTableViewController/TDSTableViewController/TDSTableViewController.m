@@ -353,7 +353,11 @@
     [self.tableView addPullToRefreshWithActionHandler:^{
         [tableViewController performSelectorOnMainThread:@selector(pullToRefreshAction) withObject:nil waitUntilDone:YES];
     }];
-    self.tableView.showsPullToRefresh = NO;// default is NO
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        [tableViewController performSelectorOnMainThread:@selector(infiniteScrollingAction) withObject:nil waitUntilDone:YES];
+    }];
+    self.tableView.showsPullToRefresh = NO;     // default is NO
+    self.tableView.showsInfiniteScrolling = NO; // default is NO
     
     // you can configure how that date is displayed
     self.tableView.pullToRefreshView.dateFormatter.dateStyle = kCFDateFormatterShortStyle;
@@ -387,12 +391,11 @@
                                                               pullViewFrame.size.height - arrowImage.size.height - 12.0f,
                                                               arrowImage.size.width,
                                                               arrowImage.size.height);
-    [self.tableView.pullToRefreshView.arrow layer].transform	= CATransform3DMakeRotation(M_PI, 0.0f, 0.0f, 1.0f);
-    self.tableView.pullToRefreshView.dateLabel.frame			= CGRectMake(0.0f,
-                                                                             pullViewFrame.size.height - 30.0f,
-                                                                             pullViewFrame.size.width,
-                                                                             20.0f);
-
+    self.tableView.pullToRefreshView.dateLabel.frame = CGRectMake(0.0f,
+                                                                  pullViewFrame.size.height - 30.0f,
+                                                                  pullViewFrame.size.width,
+                                                                  20.0f);
+    
     self.tableView.pullToRefreshView.activityIndicatorView.center = self.tableView.pullToRefreshView.arrow.center;
     
     CGRect titleLabelFrame = self.tableView.pullToRefreshView.titleLabel.frame;
@@ -400,7 +403,7 @@
     titleLabelFrame.size.height = 20.0f;
     self.tableView.pullToRefreshView.titleLabel.frame = titleLabelFrame;        
     
-    UIImage		*refreshImage	= [UIImage imageNamed:@"yourLogo.png"];
+    UIImage		*refreshImage	= [UIImage imageNamed:@"logo.png"];
     UIImageView *refreshBGView	= [[[UIImageView alloc] initWithImage:refreshImage] autorelease];
     refreshBGView.frame = CGRectMake((pullViewFrame.size.width - refreshBGView.image.size.width) / 2,
                                      pullViewFrame.size.height - 58.0f - refreshBGView.image.size.height,
@@ -585,6 +588,8 @@
 - (void)loadMoreAction
 {}
 
+- (void)infiniteScrollingAction
+{}
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)stopRefreshAction
 {

@@ -9,6 +9,8 @@
 #import "TDSTableViewSectionedDataSource.h"
 #import "TDSTableViewItem.h"
 #import "TDSTableViewSectionObject.h"
+#import "TDSTextTableViewItem.h"
+#import "TDSTextTableViewCell.h"
 
 @interface TDSTableViewSectionedDataSource(Pirvate)
 
@@ -43,7 +45,13 @@
 
 #pragma mark -
 #pragma mark Class public
-
+- (Class)tableView:(UITableView *)tableView cellClassForObject:(id)object
+{
+    if ([object isKindOfClass:[TDSTextTableViewItem class]]) {
+        return [TDSTextTableViewCell class];
+    }
+    return [TDSTableViewCell class];
+}
 #pragma mark -
 #pragma mark UITableViewDataSource
 
